@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TravaSphere</title>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-6h4l9SAG9dFcbH5vRIxH4ugZsHl4gf/PXg+FVi2aUxER7UiZp1YpO1gGvmsjInwqX6NpYbG/NJWxa4v6DCz0xQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin: 0;
+            color: #3498db;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .content {
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .animation-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .animation-element.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            .social-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .social-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-links li a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links li a:hover {
+            background-color: #3498db; /* Blue color on hover */
+        }
+
+        .social-links li a img {
+            width: 20px;
+            height: auto;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Logo without header or box -->
+        <h1 class="logo">TravaSphere</h1>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="TravaSphere.html">Home</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="tscontact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <section id="about" class="section animation-element">
+            <div class="container">
+                <h2>About TravaSphere</h2>
+                <p>TravaSphere is a global platform dedicated to enriching travel experiences through innovative technologies and community engagement. We connect travelers with unique destinations and experiences, fostering a community of exploration and discovery.</p>
+            </div>
+        </section>
+
+       
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TravaSphere. All rights reserved.</p>
+            <ul class="social-links">
+                <li><a href="#"><img src="file:///D:/Travel/5296499_fb_facebook_facebook%20logo_icon.svg" alt="Facebook"></a></li>
+                <li><a href="#"><img src="file:///D:/Travel/5296514_bird_tweet_twitter_twitter%20logo_icon.png" alt="Twitter"></a></li>
+                <li><a href="#"><img src="file:///D:/Travel/5296765_camera_instagram_instagram%20logo_icon.png" alt="Instagram"></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Animation script to add 'animated' class to elements when they appear in viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            var elements = document.querySelectorAll('.animation-element');
+
+            function checkViewport() {
+                for (var i = 0; i < elements.length; i++) {
+                    var element = elements[i];
+                    var positionFromTop = element.getBoundingClientRect().top;
+
+                    if (positionFromTop - window.innerHeight <= 0) {
+                        element.classList.add('animated');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkViewport);
+            checkViewport();
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+

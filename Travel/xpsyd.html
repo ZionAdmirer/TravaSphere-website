@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Sydney</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin: 0;
+            color: #3498db; /* Blue color */
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd600;
+        }
+
+        .hero {
+            background-image: url('sydney+website+designer.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 10px 0 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .description {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+            text-align: center;
+        }
+
+        .description h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">TravaSphere</h1>
+            <nav>
+                <ul class="nav-links">
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Sydney</h1>
+            <p>The Harbour City</p>
+        </div>
+    </section>
+
+    <section class="description">
+        <div class="container">
+            <h2>Sydney</h2>
+            <p>Sydney, the capital city of New South Wales, is one of Australia's largest and most vibrant cities. Known for its stunning harbourfront Sydney Opera House and the Sydney Harbour Bridge, this city offers a mix of modern sophistication and natural beauty. From the bustling shopping districts of the CBD to the relaxed beaches of Bondi and Manly, Sydney has something for everyone. Enjoy world-class dining, explore the Royal Botanic Garden, or take a ferry ride to experience the city's picturesque waterfront. Sydney's rich cultural scene, diverse population, and iconic landmarks make it a must-visit destination for travelers from around the globe.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TravaSphere. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
