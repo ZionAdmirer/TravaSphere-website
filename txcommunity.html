@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravaSphere Community</title>
+    <style>
+        /* General styles */
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin: 0;
+            color: #3498db;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .logo img {
+            max-height: 50px;
+            vertical-align: middle;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.7s;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .hero {
+            background-image: url('pexels-pierre-blache-651604-3105066.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            opacity: 0;
+            animation: fadeInScale 1s ease-out forwards;
+            animation-delay: 0.9s;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .content {
+            padding: 60px 20px;
+            margin-top: -50px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1.1s;
+        }
+
+        .ceo-note {
+            background-color: #3498db;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 1.3s;
+        }
+
+        .ceo-note h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .ceo-note p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            padding: 40px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+        }
+
+        footer {
+          background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 20px;
+            margin-bottom: -60px;
+        }
+
+        .social-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .social-links li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-links li a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #ffffff;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links li a:hover {
+            background-color: #3498db; /* Blue color on hover */
+        }
+
+        .social-links li a img {
+            width: 20px;
+            height: auto;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Logo without header or box -->
+        <h1 class="logo">TravaSphere</h1>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="TravaZbio.html">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="tscontact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to TravaSphere Community</h1>
+        </div>
+    </section>
+
+    <div class="content">
+        <!-- CEO Note Section -->
+        <section class="ceo-note">
+            <div class="container">
+                <h3>A Visionary Note from Our CEO, Sankur Kundu</h3>
+                <p>"Dear Travel Enthusiasts,
+
+                    Welcome to TravaSphere, where our passion for exploration converges with our commitment to redefine travel experiences. In every corner of the globe, we see not just destinations, but opportunities to connect, learn, and grow. As we embark on this journey together, I am inspired by the collective spirit of curiosity and adventure that defines our community.
+                    
+                    TravaSphere is more than a platform; it's a gateway to new horizons and transformative experiences. Whether you're discovering hidden gems, connecting with fellow travelers, or planning your next adventure, know that you are part of a global movement to enrich lives through travel.
+                    
+                    Our commitment is not just to facilitate journeys, but to create meaningful connections that transcend borders and cultures. With your support and participation, we will continue to innovate, evolve, and shape the future of travel.
+                    
+                    Thank you for being part of our community. Together, let's explore, inspire, and create unforgettable memories.
+                    
+                    Warm regards, Sankur Kundu, CEO, TravaSphere"</p>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section" style="animation-delay: 1.5s;">
+            <div class="container">
+                <h2>Features</h2>
+                <p>Discover the advanced features that make TravaSphere your ultimate travel companion:</p>
+                <ul class="features-list">
+                    <!-- Personalized Travel Recommendations -->
+                    <li class="feature-item" style="animation-delay: 1.6s;">
+                        <div class="feature-icon">🌟</div>
+                        <h3>Personalized Travel Recommendations</h3>
+                        <p>Experience travel like never before with our AI-powered suggestions tailored to your preferences and past travel behavior. Receive customized itineraries based on your interests, budget, and travel history.</p>
+                    </li>
+
+                    <!-- Virtual Reality (VR) Tours -->
+                    <li class="feature-item" style="animation-delay: 1.7s;">
+                        <div class="feature-icon">🌐</div>
+                        <h3>Virtual Reality (VR) Tours</h3>
+                        <p>Immerse yourself in 360-degree VR experiences of popular destinations. Explore hotels, attractions, and local activities virtually to make informed decisions before booking.</p>
+                      </li>
+  
+                      <!-- Smart Travel Assistant -->
+                      <li class="feature-item" style="animation-delay: 1.8s;">
+                          <div class="feature-icon">🤖</div>
+                          <h3>Smart Travel Assistant</h3>
+                          <p>Get assistance with travel planning, booking, and real-time information from our AI-powered chatbots. Use voice commands to interact with your travel assistant for a hands-free experience.</p>
+                      </li>
+  
+                      <!-- Social Travel Sharing -->
+                      <li class="feature-item" style="animation-delay: 1.9s;">
+                          <div class="feature-icon">📸</div>
+                          <h3>Social Travel Sharing</h3>
+                          <p>Share your travel experiences with our community through photos, videos, and travel stories. Connect with fellow travelers, find travel buddies, and get inspired by their adventures.</p>
+                      </li>
+  
+                      <!-- Real-Time Travel Alerts -->
+                      <li class="feature-item" style="animation-delay: 2.0s;">
+                          <div class="feature-icon">🔔</div>
+                          <h3>Real-Time Travel Alerts</h3>
+                          <p>Stay updated with real-time alerts about flight status, weather conditions, and travel advisories. Get notifications about important updates directly on your device.</p>
+                      </li>
+  
+                      <!-- Sustainable Travel Options -->
+                      <li class="feature-item" style="animation-delay: 2.1s;">
+                          <div class="feature-icon">🌍</div>
+                          <h3>Sustainable Travel Options</h3>
+                          <p>Make eco-friendly travel choices with our curated list of sustainable travel options. Learn about green accommodations, eco-tours, and responsible travel practices.</p>
+                      </li>
+                  </ul>
+              </div>
+          </section>
+  
+          <!-- Footer Section -->
+          <footer>
+            <div class="container">
+                <p>&copy; 2024 TravaSphere. All rights reserved.</p>
+                <ul class="social-links">
+                    <li><a href="#"><img src="file:///D:/Travel/5296499_fb_facebook_facebook%20logo_icon.svg" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="file:///D:/Travel/5296514_bird_tweet_twitter_twitter%20logo_icon.png" alt="Twitter"></a></li>
+                    <li><a href="#"><img src="file:///D:/Travel/5296765_camera_instagram_instagram%20logo_icon.png" alt="Instagram"></a></li>
+                </ul>
+            </div>
+        </footer>
+  
+      </div>
+  </body>
+  
+  </html>
+  
+
+
+
+
+
+  
+
+   
+
+

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination-TravaSphere</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            background-image: url('passport-2714675_1920.jpg');
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            
+            padding: 20px 0;
+           
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        .logo {
+          font-size: 2rem;
+            margin: 0;
+            color: #3498db; /* Blue color */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background-color: #ffd600;
+            color: #333;
+        }
+
+        .destinations {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            margin-top: 100px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto; /* Center the content */
+            opacity: 0; /* Initially hidden */
+            transform: scale(0.8); /* Initially scaled down */
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .destinations.show {
+            opacity: 1;
+            transform: scale(1); /* Scale to normal size */
+        }
+
+        .destinations h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px; /* Adjusted margin here */
+            color: #333;
+        }
+
+        .search-form {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-form input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-form button {
+            background-color: #5ab2ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .search-form button:hover {
+            background-color: #4a9ad7;
+        }
+
+        .results {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .results h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .results ul li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .results ul li:last-child {
+            border-bottom: none;
+        }
+
+        .results ul li a {
+            text-decoration: none;
+            color: #5ab2ff;
+            transition: color 0.3s;
+        }
+
+        .results ul li a:hover {
+            color: #4a9ad7;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto; /* Push footer to the bottom */
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .search-form input[type="text"] {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">TravaSphere</h1>
+            <nav>
+                <ul class="nav-links">
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <h2>Explore Destinations</h2>
+
+            <form class="search-form" onsubmit="searchCity(event)">
+                <input id="cityInput" type="text" placeholder="Enter city name...">
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="results" id="searchResults">
+                <h3>Search Results</h3>
+                <ul id="cityList">
+                    <!-- Results will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TravaSphere. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to handle city search
+        function searchCity(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const input = document.getElementById('cityInput').value.trim().toLowerCase();
+            const cities = [
+                { name: 'New York', url: '#' },
+                { name: 'Sydney', url: '#' },
+                { name: 'Tokyo', url: '#' },
+                { name: 'Paris', url: '#' },
+                { name: 'Mumbai', url: '#' },
+                { name: 'Rome', url: '#' },
+                { name: 'Dubai', url: '#' },
+                { name: 'New Delhi', url: '#' },
+                { name: 'Kolkata', url: '#' },
+                // Add more cities as needed
+            ];
+
+            const results = cities.filter(city => city.name.toLowerCase().includes(input));
+
+            const resultList = document.getElementById('cityList');
+            resultList.innerHTML = '';
+
+            if (results.length > 0) {
+                results.forEach(city => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = city.url;
+                    a.textContent = city.name;
+                    li.appendChild(a);
+                    resultList.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('li');
+                li.textContent = 'No results found.';
+                resultList.appendChild(li);
+            }
+        }
+
+        // JavaScript for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const destinationsSection = document.querySelector('.destinations');
+
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function showDestinationsSection() {
+                if (isInViewport(destinationsSection)) {
+                    destinationsSection.classList.add('show');
+                }
+            }
+
+            showDestinationsSection();
+
+            window.addEventListener('scroll', showDestinationsSection);
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
